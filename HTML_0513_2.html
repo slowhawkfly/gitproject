@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			body {
+				text-align: center;
+			}
+			#a {
+				background-color:red;
+				height: 300px;
+				width: 300px;
+				position:relative;
+			}
+		</style>
+		<title>jQuery</title>
+	</head>
+	<div id='a'>a</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js">
+	</script>
+	<script>
+		$(document).ready(function() {
+			var aaa = $('#a');
+			aaa.on('click', function() {
+				alert('123');
+				aaa.html('123123');
+			});
+		});
+	</script>
+</body>
+</html>

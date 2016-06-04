@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body class="whole-bg">
+    <form name="form1" method="post">
+        <table width="90%">
+            <tr>
+                <td class="function-bar">
+                    <input type="submit" name="Submit" value="submit" onclick="return checkData();">
+                    <input type="reset" value="reset">
+                </td>
+                <td class="subsys-title" width="10%">Message</td>
+                <td class="msg" id="msg" width="40%"> &nbsp; 訊息...
+                </td>
+            </tr>
+        </table>
+        <br>
+        <fieldset style='width:"90%"'>
+            <legend>Member Applied Form</legend>
+            <table width="100%" border="0" class="function-bar">
+                <tr>
+                    <td class="subsys-title" width="25%">
+                        <div align="right">type of member : </div>
+                    </td>
+                    <td class="light-bg-left">
+                        <input type="radio" name="radiobutton" value="personal"> personal
+                        <input type="radio" name="radiobutton" value="company"> company
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subsys-title" width="25%">
+                        <div align="right">
+                            <font color=red>*</font>&nbsp; chinese name : </div>
+                    </td>
+                    <td class="light-bg-left">
+                        <input type="text" name="chineseName" id="chineseName">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subsys-title" width="25%">
+                        <div align="right"> English FirstName : </div>
+                    </td>
+                    <td class="light-bg-left">
+                        <input type="text" name="firstName"> English LastName :
+                        <input type="text" name="lastName">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subsys-title" width="25%">
+                        <div align="right">
+                            <font color=red>*</font>&nbsp; ID Card No. : </div>
+                    </td>
+                    <td class="light-bg-left">
+                        <input type="text" name="idNo" id="idNo">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subsys-title" width="25%">
+                        <div align="right">Email : </div>
+                    </td>
+                    <td class="light-bg-left">
+                        <input type="text" name="email" size="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="subsys-title" width="25%">
+                        <div align="right">
+                            <font color=red>*</font>&nbsp; Birthday : </div>
+                    </td>
+                    <td class="light-bg-left">
+                        <input type="text" size=10 name="birthday" maxlength=10 id="birthday">
+                </tr>
+                <tr>
+                    <td class="subsys-title" width="25%">
+                        <div align="right">Hobbies : </div>
+                    </td>
+                    <td class="light-bg-left">
+                        <input type="checkbox" name="hobby" value="Computer"> Computer
+                        <input type="checkbox" name="hobby" value="Movie"> Movie
+                        <input type="checkbox" name="hobby" value="Novell"> Novell
+                        <input type="checkbox" name="hobby" value="Music"> Music
+                        <input type="checkbox" name="hobby" value="Shopping"> Shopping
+                        <input type="checkbox" name="hobby" value="Trip"> Trip
+                        <input type="checkbox" name="hobby" value="Sports"> Sports
+                        <input type="checkbox" name="hobby" value="Other"> Other
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" class="subsys-title" width="25%">
+                        <div align="right">Personal Remark : </div>
+                    </td>
+                    <td class="light-bg-left">
+                        <textarea name="remark" cols="50" rows="10"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("input[name='Submit']").click(function() {
+            if ($("#chineseName").val() === "" || $("#idNo").val() === "" || $("#birthday").val() === "") {
+                alert("有資料沒填完！！！！！");
+                if ($("#chineseName").val() === "") {
+                    $("#chineseName").addClass("errField-left");
+                } else {
+                    $("#chineseName").removeClass("errField-left");
+                }
+                if ($("#idNo").val() === "") {
+                    $("#idNo").addClass("errField-left");
+                } else {
+                    $("#idNo").removeClass("errField-left");
+                }
+                if ($("#birthday").val() === "") {
+                    $("#birthday").addClass("errField-left");
+                } else {
+                    $("#birthday").removeClass("errField-left");
+                }
+                return false;
+            } else {
+                if ($("input[name='radiobutton']").is(":checked") === false) {
+                    alert("表單已送出，但 type of member 未填寫");
+                }
+                if ($("input[name='hobby']:checked").length === 0) {
+                    alert("表單已送出，但 Hobbies 未填寫");
+                }
+            }
+        })
+    })
+    </script>
+</body>
+
+</html>
